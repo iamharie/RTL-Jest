@@ -1,7 +1,26 @@
+// {
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./tsconfig.node.json" }
+//   ]
+// }
+
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "es6", // Set ECMAScript version
+    "module": "commonjs", // CommonJS for Node.js and Jest
+    "lib": ["dom", "esnext"], // Add support for browser and modern JS features
+    "jsx": "react-jsx", // Enable JSX for React 17+
+    "esModuleInterop": true, // Allow default imports from CommonJS modules
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules without default exports
+    "moduleResolution": "node", // Resolve modules the same as Node.js
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "skipLibCheck": true, // Skip type checks for libraries
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
+    "strict": true // Enable strict type-checking options
+  },
+  "include": ["src"], // Include only the source directory
+  "exclude": ["node_modules", "dist"], // Exclude unnecessary folders
+  "references": [] // No need for project references now
 }
