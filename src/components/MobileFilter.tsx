@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { Box } from "@mui/material";
 import { useComponents } from "../useComponents";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks.ts";
 import { setCommonJobList } from "../store/features/jobListSlice";
 import { filterOptions, jobFilterList } from "../Common/model";
 import {

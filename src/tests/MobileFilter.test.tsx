@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks.ts";
 import { setCommonJobList } from "../store/features/jobListSlice";
 import { useComponents } from "../useComponents";
 import JobListFilterMobileContainer from "../components/JobListFilterMobileContainer";
