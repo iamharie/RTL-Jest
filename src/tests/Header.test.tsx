@@ -11,6 +11,8 @@ jest.mock("../store/hooks", () => ({
   useAppSelector: jest.fn(),
 }));
 
+console.log("Mock Store REDUX");
+
 describe("Header Component", () => {
   const mockDispatch = jest.fn();
 
