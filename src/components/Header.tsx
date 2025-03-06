@@ -3,7 +3,7 @@ import Output from "./Output";
 import { useAppDispatch } from "../store/hooks";
 import { setFilterOption } from "../store/slice";
 import ResponsiveText from "./ResponsiveText";
-
+import FilterIconComponent from "./FilterIconComponent";
 export const Header = () => {
   const [test, setText] = useState(false);
   const dispatch = useAppDispatch();
@@ -15,10 +15,11 @@ export const Header = () => {
 
   return (
     <div>
-      <h1>Online Shopping</h1>
+      <FilterIconComponent />
+      {/* <h1>Online Shopping</h1>
       {!test ? <p>Welcome!</p> : <Output>Logged Out</Output>}
       {test ? <ResponsiveText /> : null}
-      <button onClick={handleClick}>Click</button>
+      <button onClick={handleClick}>Click</button> */}
     </div>
   );
 };
