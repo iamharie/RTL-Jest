@@ -1,31 +1,24 @@
 import { useEffect, useState, useCallback } from "react";
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth < 600 ? true : false
-  );
-  const [isTablet, setIsTablet] = useState(
-    window.innerWidth < 1050 ? true : false
-  );
+  // Lazy initialization of states
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 600);
+  const [isTablet, setIsTablet] = useState(() => window.innerWidth < 1050);
 
-  //debug
-  //   const handleWindowResize = useCallback(() => {
-  //     const width = window.innerWidth;
-  //     console.log("Resize event - width:", width); // Debug log
-  //     setIsMobile(width < 600);
-  //   }, []);
+  const handleWindowResize = useCallback(() => {
+    const width = window.innerWidth;
+    setIsMobile(width < 600);
+    setIsTablet(width < 1050);
+  }, []);
 
-  const throttledHandleWindowResize = () => {
-    setIsMobile(window.innerWidth < 600 ? true : false);
-    setIsTablet(window.innerWidth < 1050 ? true : false);
-  };
   useEffect(() => {
-    throttledHandleWindowResize();
-    window.addEventListener("resize", throttledHandleWindowResize);
-    return () => {
-      window.removeEventListener("resize", throttledHandleWindowResize);
-    };
-  }, [throttledHandleWindowResize]);
+    // Initial check
+    handleWindowResize();
 
-  return { isMobile, setIsMobile, isTablet, setIsTablet };
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, [handleWindowResize]);
+
+  // Only return what's needed
+  return { isMobile, isTablet };
 }
