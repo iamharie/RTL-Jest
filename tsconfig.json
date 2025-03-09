@@ -18,9 +18,13 @@
     "resolveJsonModule": true, // Allow importing JSON modules
     "skipLibCheck": true, // Skip type checks for libraries
     "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
-    "strict": true // Enable strict type-checking options
+    "strict": true, // Enable strict type-checking options
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types" // Add this line
+    ]
   },
-  "include": ["src"], // Include only the source directory
+  "include": ["src", "custom.d.ts"], // Include only the source directory
   "exclude": ["node_modules", "dist"], // Exclude unnecessary folders
   "references": [] // No need for project references now
 }
