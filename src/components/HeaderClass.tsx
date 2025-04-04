@@ -3,15 +3,20 @@ import React from "react";
 interface HeaderClass {
   count: number;
   name: string;
+  address: [];
 }
 
-class HeaderClass extends React.Component<{}, { count: number; name: string }> {
+class HeaderClass extends React.Component<
+  {},
+  { count: number; name: string; address: [] }
+> {
   //manage state
   constructor(props: HeaderClass) {
     super(props);
     this.state = {
       count: 0,
       name: "Hari",
+      address: [],
     };
   }
 
