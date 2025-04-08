@@ -27,7 +27,7 @@ class HeaderClass extends React.Component<
   };
 
   sub() {
-    this.setState({ test: 4 });
+    this.setState({ count: this.state.count - 1 });
   }
 
   render() {
